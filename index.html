@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dear Muridku</title>
+    <title>Bunga Cantik Interaktif</title>
     <style>
         body {
             margin: 0;
@@ -200,6 +200,72 @@
             border-radius: 50%;
         }
 
+        /* Love Heart Images */
+        .love-heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            background-image: url('love.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 3px;
+        }
+
+        .love-heart:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Heart Positions - Random di sekitar bunga */
+        .heart1 {
+            top: -80px;
+            left: -70px;
+            animation: heartFloat 2s ease-in-out infinite;
+        }
+
+        .heart2 {
+            top: -60px;
+            right: -80px;
+            animation: heartFloat 2.5s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .heart3 {
+            top: 30px;
+            left: -90px;
+            animation: heartFloat 1.8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .heart4 {
+            top: -70px;
+            left: -85px;
+            animation: heartFloat 2.2s ease-in-out infinite;
+            animation-delay: 0.3s;
+        }
+
+        .heart5 {
+            top: -50px;
+            right: -95px;
+            animation: heartFloat 1.9s ease-in-out infinite;
+            animation-delay: 0.8s;
+        }
+
+        .heart6 {
+            top: 40px;
+            right: -75px;
+            animation: heartFloat 2.1s ease-in-out infinite;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes heartFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
         @keyframes bloom1 {
             0% { transform: scale(0.9) rotate(-2deg); }
             100% { transform: scale(1.1) rotate(2deg); }
@@ -313,6 +379,11 @@
             <div class="sparkle sparkle1"></div>
             <div class="sparkle sparkle2"></div>
             <div class="tooltip">Click Me!</div>
+            
+            <!-- Love Hearts untuk Bunga 1 -->
+            <div class="love-heart heart1" onclick="event.stopPropagation(); window.open('foto1.jpg', '_blank')"></div>
+            <div class="love-heart heart2" onclick="event.stopPropagation(); window.open('foto2.jpg', '_blank')"></div>
+            <div class="love-heart heart3" onclick="event.stopPropagation(); window.open('foto3.jpg', '_blank')"></div>
         </div>
 
         <!-- Bunga 2 - Bunga Matahari -->
@@ -336,6 +407,11 @@
             <div class="sparkle sparkle3"></div>
             <div class="sparkle sparkle4"></div>
             <div class="tooltip">Click Me!</div>
+            
+            <!-- Love Hearts untuk Bunga 2 -->
+            <div class="love-heart heart4" onclick="event.stopPropagation(); window.open('foto4.jpg', '_blank')"></div>
+            <div class="love-heart heart5" onclick="event.stopPropagation(); window.open('foto5.jpg', '_blank')"></div>
+            <div class="love-heart heart6" onclick="event.stopPropagation(); window.open('foto6.jpg', '_blank')"></div>
         </div>
     </div>
 </body>
