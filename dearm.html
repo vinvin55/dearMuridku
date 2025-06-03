@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunga Cantik Interaktif</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .garden {
+            display: flex;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .flower {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform-origin: bottom center;
+        }
+
+        .flower:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Bunga 1 - Mawar Pink */
+        .flower1 {
+            width: 120px;
+            height: 200px;
+        }
+
+        .stem1 {
+            width: 6px;
+            height: 100px;
+            background: linear-gradient(to bottom, #4a7c59, #2d5a3d);
+            margin: 0 auto;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stem1::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 30px;
+            width: 25px;
+            height: 15px;
+            background: #4a7c59;
+            border-radius: 50% 10px 50% 10px;
+            transform: rotate(-45deg);
+        }
+
+        .rose {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto;
+            margin-bottom: -10px;
+            animation: bloom1 2s ease-in-out infinite alternate;
+            z-index: 2;
+        }
+
+        .petal {
+            position: absolute;
+            width: 25px;
+            height: 35px;
+            border-radius: 50% 50% 50% 10px;
+            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+            top: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+        }
+
+        .petal1 { transform: translate(-50%, -100%) rotate(0deg) translateY(-20px); }
+        .petal2 { transform: translate(-50%, -100%) rotate(45deg) translateY(-20px); }
+        .petal3 { transform: translate(-50%, -100%) rotate(90deg) translateY(-20px); }
+        .petal4 { transform: translate(-50%, -100%) rotate(135deg) translateY(-20px); }
+        .petal5 { transform: translate(-50%, -100%) rotate(180deg) translateY(-20px); }
+        .petal6 { transform: translate(-50%, -100%) rotate(225deg) translateY(-20px); }
+        .petal7 { transform: translate(-50%, -100%) rotate(270deg) translateY(-20px); }
+        .petal8 { transform: translate(-50%, -100%) rotate(315deg) translateY(-20px); }
+
+        .center1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ffeb3b, #ffc107);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+        }
+
+        /* Bunga 2 - Bunga Matahari */
+        .flower2 {
+            width: 140px;
+            height: 220px;
+        }
+
+        .stem2 {
+            width: 8px;
+            height: 120px;
+            background: linear-gradient(to bottom, #4a7c59, #2d5a3d);
+            margin: 0 auto;
+            border-radius: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stem2::before,
+        .stem2::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: #4a7c59;
+            border-radius: 50% 10px 50% 10px;
+        }
+
+        .stem2::before {
+            left: -20px;
+            top: 40px;
+            transform: rotate(-30deg);
+        }
+
+        .stem2::after {
+            right: -20px;
+            top: 60px;
+            transform: rotate(30deg);
+        }
+
+        .sunflower {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin: 0 auto;
+            margin-bottom: -20px;
+            animation: bloom2 3s ease-in-out infinite alternate;
+            z-index: 2;
+        }
+
+        .sun-petal {
+            position: absolute;
+            width: 30px;
+            height: 12px;
+            background: linear-gradient(45deg, #ffeb3b, #ff9800);
+            border-radius: 50% 50% 50% 50%;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+        }
+
+        .sun-petal1 { transform: translate(-50%, -50%) rotate(0deg) translateX(30px); }
+        .sun-petal2 { transform: translate(-50%, -50%) rotate(30deg) translateX(30px); }
+        .sun-petal3 { transform: translate(-50%, -50%) rotate(60deg) translateX(30px); }
+        .sun-petal4 { transform: translate(-50%, -50%) rotate(90deg) translateX(30px); }
+        .sun-petal5 { transform: translate(-50%, -50%) rotate(120deg) translateX(30px); }
+        .sun-petal6 { transform: translate(-50%, -50%) rotate(150deg) translateX(30px); }
+        .sun-petal7 { transform: translate(-50%, -50%) rotate(180deg) translateX(30px); }
+        .sun-petal8 { transform: translate(-50%, -50%) rotate(210deg) translateX(30px); }
+        .sun-petal9 { transform: translate(-50%, -50%) rotate(240deg) translateX(30px); }
+        .sun-petal10 { transform: translate(-50%, -50%) rotate(270deg) translateX(30px); }
+        .sun-petal11 { transform: translate(-50%, -50%) rotate(300deg) translateX(30px); }
+        .sun-petal12 { transform: translate(-50%, -50%) rotate(330deg) translateX(30px); }
+
+        .center2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #8b4513, #654321);
+            border-radius: 50%;
+            border: 3px solid #5d4e37;
+        }
+
+        .center2::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: repeating-conic-gradient(#654321 0deg 10deg, #8b4513 10deg 20deg);
+            border-radius: 50%;
+        }
+
+        @keyframes bloom1 {
+            0% { transform: scale(0.9) rotate(-2deg); }
+            100% { transform: scale(1.1) rotate(2deg); }
+        }
+
+        @keyframes bloom2 {
+            0% { transform: scale(0.95) rotate(-3deg); }
+            100% { transform: scale(1.05) rotate(3deg); }
+        }
+
+        .flower:hover .rose {
+            animation-duration: 0.5s;
+        }
+
+        .flower:hover .sunflower {
+            animation-duration: 0.5s;
+        }
+
+        .flower:active {
+            transform: scale(0.95);
+        }
+
+        /* Efek sparkle */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 2s infinite;
+        }
+
+        .sparkle1 {
+            top: 20px;
+            left: 20px;
+            animation-delay: 0s;
+        }
+
+        .sparkle2 {
+            top: 40px;
+            right: 30px;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle3 {
+            bottom: 60px;
+            left: 40px;
+            animation-delay: 1s;
+        }
+
+        .sparkle4 {
+            bottom: 30px;
+            right: 20px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .flower:hover .tooltip {
+            opacity: 1;
+        }
+
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="garden">
+        <!-- Bunga 1 - Mawar Pink -->
+        <div class="flower flower1" onclick="window.open('./dear.mp4', '_blank')">
+            <div class="rose">
+                <div class="petal petal1"></div>
+                <div class="petal petal2"></div>
+                <div class="petal petal3"></div>
+                <div class="petal petal4"></div>
+                <div class="petal petal5"></div>
+                <div class="petal petal6"></div>
+                <div class="petal petal7"></div>
+                <div class="petal petal8"></div>
+                <div class="center1"></div>
+            </div>
+            <div class="stem1"></div>
+            <div class="sparkle sparkle1"></div>
+            <div class="sparkle sparkle2"></div>
+            <div class="tooltip">Click Me!</div>
+        </div>
+
+        <!-- Bunga 2 - Bunga Matahari -->
+        <div class="flower flower2" onclick="window.open('https://dearmuridku.my.canva.site/', '_blank')">
+            <div class="sunflower">
+                <div class="sun-petal sun-petal1"></div>
+                <div class="sun-petal sun-petal2"></div>
+                <div class="sun-petal sun-petal3"></div>
+                <div class="sun-petal sun-petal4"></div>
+                <div class="sun-petal sun-petal5"></div>
+                <div class="sun-petal sun-petal6"></div>
+                <div class="sun-petal sun-petal7"></div>
+                <div class="sun-petal sun-petal8"></div>
+                <div class="sun-petal sun-petal9"></div>
+                <div class="sun-petal sun-petal10"></div>
+                <div class="sun-petal sun-petal11"></div>
+                <div class="sun-petal sun-petal12"></div>
+                <div class="center2"></div>
+            </div>
+            <div class="stem2"></div>
+            <div class="sparkle sparkle3"></div>
+            <div class="sparkle sparkle4"></div>
+            <div class="tooltip">Click Me!</div>
+        </div>
+    </div>
+</body>
+</html>
